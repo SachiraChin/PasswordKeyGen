@@ -13,7 +13,7 @@ namespace PasswordTool
 
         private void GeneratePasswordHashButton_Click(object sender, EventArgs e)
         {
-            PasswordTextBox.Text = System.Web.Security.Membership.GeneratePassword(16, 10);
+            PasswordTextBox.Text = System.Web.Security.Membership.GeneratePassword(16, 6);
             var hash = PasswordHashProvider.CreateHash(PasswordTextBox.Text);
             PasswordHashTextBox.Text = hash.Hash;
             PasswordSaltTextBox.Text = hash.Salt;

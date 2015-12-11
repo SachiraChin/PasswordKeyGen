@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Occulem.Core.Auth.Providers;
+using PasswordTool.Providers;
 
-namespace Occulem.Core.Auth.PasswordTool
+namespace PasswordTool
 {
     public partial class MainForm : Form
     {
@@ -20,6 +13,7 @@ namespace Occulem.Core.Auth.PasswordTool
 
         private void GeneratePasswordHashButton_Click(object sender, EventArgs e)
         {
+            PasswordTextBox.Text = System.Web.Security.Membership.GeneratePassword(16, 10);
             var hash = PasswordHashProvider.CreateHash(PasswordTextBox.Text);
             PasswordHashTextBox.Text = hash.Hash;
             PasswordSaltTextBox.Text = hash.Salt;

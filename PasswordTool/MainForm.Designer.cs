@@ -1,4 +1,4 @@
-﻿namespace Occulem.Core.Auth.PasswordTool
+﻿namespace PasswordTool
 {
     partial class MainForm
     {

@@ -29,7 +29,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace Occulem.Core.Auth.Providers
+namespace PasswordTool.Providers
 {
     /// <summary>
     /// Salted password hashing with PBKDF2-SHA1.

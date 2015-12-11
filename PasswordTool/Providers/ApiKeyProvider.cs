@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using Microsoft.Owin.Security.DataHandler.Encoder;
 
-namespace Occulem.Core.Auth.Providers
+namespace PasswordTool.Providers
 {
     public static class ApiKeyProvider
     {

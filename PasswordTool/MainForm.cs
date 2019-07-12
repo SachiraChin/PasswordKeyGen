@@ -1,5 +1,8 @@
 ﻿using System;
+using System.IdentityModel.Tokens;
+using System.Text;
 using System.Windows.Forms;
+using Microsoft.Owin.Security.DataHandler.Encoder;
 using PasswordTool.Providers;
 
 namespace PasswordTool
@@ -43,6 +46,17 @@ namespace PasswordTool
             var hash = PasswordHashProvider.CreateHash(PasswordTextBox.Text);
             PasswordHashTextBox.Text = hash.Hash;
             PasswordSaltTextBox.Text = hash.Salt;
+        }
+
+        private void GenerateSymmetricSecurityKeyButton_Click(object sender, EventArgs e)
+        {
+            var random = $"{Guid.NewGuid():N}{Guid.NewGuid():N}";
+            var str = TextEncodings.Base64Url.Encode(Encoding.UTF8.GetBytes(random));
+            var secret = TextEncodings.Base64Url.Decode(str);
+            // validate the secret
+            var key = new InMemorySymmetricSecurityKey(secret);
+
+            SymmetricSecurityKeyTextBox.Text = str;
         }
     }
 }
